@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: my-ingress
+  annotations:
+    # Add any annotations here
+spec:
+  rules:
+    - host: example.com
+      http:
+        paths:
+          - path: /my-app1
+            pathType: Prefix
+            backend:
+              service:
+                name: my-service
+                port:
+                  number: 80
+        paths:
+          -path: /my-app2
+            pathType: Prefix
+            backend:
+              service:
+                name: my-service
+                port:
+                  number: 80  
+                
